@@ -8,6 +8,11 @@
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
 
+    html {
+      scroll-behavior: smooth;       /* smooth scrolling */
+      scroll-padding-top: 100px;     /* offset for sticky header height */
+    }
+
     body {
       font-family: 'Poppins', sans-serif;
       background-color: #fafafa;
@@ -217,8 +222,4 @@
 
 <script>
 function openLightbox() {
-  document.getElementById('lightbox').style.display = 'block';
-  showSlide(slideIndex);
-}
-function closeLightbox() {
-  document.getElementById('lightbox').style.display = '
+  document
