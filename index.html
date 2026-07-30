@@ -159,8 +159,8 @@
       <img src="images/event5.jpeg" alt="Decorated Entrance">
       <img src="images/event6.jpeg" alt="Lighting Arrangement">
     </div>
-    <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
-    <a class="next" onclick="moveSlide(1)">&#10095;</a>
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
   </div>
 </section>
 
@@ -176,39 +176,50 @@
 </footer>
 
 <script>
-let index = 0;
-const slides = document.querySelector('.carousel-slide');
-const images = document.querySelectorAll('.carousel-slide img');
-const total = images.length;
+document.addEventListener("DOMContentLoaded", () => {
+  let index = 0;
+  const slides = document.querySelector('.carousel-slide');
+  const images = document.querySelectorAll('.carousel-slide img');
+  const total = images.length;
 
-function showSlide() {
-  slides.style.transform = `translateX(${-index * 100}%)`;
-}
+  function showSlide() {
+    slides.style.transform = `translateX(${-index * 100}%)`;
+  }
 
-function moveSlide(step) {
-  index += step;
-  if (index < 0) index = total - 1;
-  if (index >= total) index = 0;
-  showSlide();
-  pauseAutoScroll(); // pause auto scroll when user clicks
-}
+  function moveSlide(step) {
+    index += step;
+    if (index < 0) index = total - 1;
+    if (index >= total) index = 0;
+    showSlide();
+    pauseAutoScroll(); // pause auto scroll when user clicks
+  }
 
-// Auto scrolling every 3s
-let autoScroll = setInterval(nextSlide, 3000);
+  function nextSlide() {
+    index++;
+    if (index >= total) index = 0;
+    showSlide();
+  }
 
-function nextSlide() {
-  index++;
-  if (index >= total) index = 0;
-  showSlide();
-}
+  let autoScroll = setInterval(nextSlide, 3000);
 
-// Pause auto scroll for 10s after manual click
-function pauseAutoScroll() {
-  clearInterval(autoScroll);
-  setTimeout(() => {
+  function pauseAutoScroll() {
+    clearInterval(autoScroll);
+    setTimeout(() => {
+      autoScroll = setInterval(nextSlide, 3000);
+    }, 10000);
+  }
+
+  // Pause on hover
+  const carousel = document.querySelector('.carousel');
+  carousel.addEventListener('mouseenter', () => clearInterval(autoScroll));
+  carousel.addEventListener('mouseleave', () => {
     autoScroll = setInterval(nextSlide, 3000);
-  }, 10000);
-}
+  });
+
+  // Attach to buttons
+  document.querySelector('.prev').addEventListener('click', () => moveSlide(-1));
+  document.querySelector('.next').addEventListener('click', () => moveSlide(1));
+});
 </script>
 
 </body>
