@@ -4,57 +4,112 @@
   <meta charset="UTF-8">
   <title>BEZAWADA EVENTZ</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-    header { background: #333; color: white; padding: 20px; text-align: center; }
-    nav { background: #444; padding: 10px; text-align: center; }
-    nav a { color: white; margin: 0 15px; text-decoration: none; }
-    section { padding: 20px; }
-    .gallery img { width: 300px; margin: 10px; border-radius: 8px; }
-    footer { background: #333; color: white; text-align: center; padding: 15px; }
+    /* Reset */
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    body { font-family: 'Segoe UI', Arial, sans-serif; line-height:1.6; color:#333; }
+
+    header {
+      background:#0a0a23; color:#fff; padding:20px 40px;
+      display:flex; justify-content:space-between; align-items:center;
+      position:sticky; top:0;
+    }
+    header h1 { font-size:24px; }
+    nav a { color:#fff; margin:0 15px; text-decoration:none; font-weight:500; }
+    nav a:hover { color:#00bcd4; }
+
+    .hero {
+      background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                 url('banner.jpg') center/cover no-repeat;
+      color:#fff; text-align:center; padding:100px 20px;
+    }
+    .hero h2 { font-size:48px; margin-bottom:20px; }
+    .hero p { font-size:20px; margin-bottom:30px; }
+    .hero button {
+      background:#00bcd4; border:none; padding:15px 30px;
+      color:#fff; font-size:18px; border-radius:5px; cursor:pointer;
+    }
+    .hero button:hover { background:#0097a7; }
+
+    section { padding:60px 40px; max-width:1200px; margin:auto; }
+    section h2 { text-align:center; margin-bottom:40px; font-size:32px; }
+
+    .features { display:flex; gap:20px; justify-content:center; flex-wrap:wrap; }
+    .feature-card {
+      flex:1; min-width:250px; background:#f9f9f9; padding:20px;
+      border-radius:8px; text-align:center; box-shadow:0 2px 6px rgba(0,0,0,0.1);
+    }
+    .feature-card h3 { margin-bottom:15px; color:#00bcd4; }
+
+    .gallery { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; }
+    .gallery img { width:300px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+
+    .contact { text-align:center; }
+    .contact p { margin:10px 0; }
+
+    footer {
+      background:#0a0a23; color:#fff; text-align:center; padding:20px;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <h1>Welcome to Bezawada Eventz</h1>
-    <p>Join us for an unforgettable experience!</p>
-  </header>
-
-  <!-- Navigation -->
+<header>
+  <h1>Bezawada Eventz</h1>
   <nav>
     <a href="#about">About</a>
+    <a href="#features">Highlights</a>
     <a href="#gallery">Gallery</a>
     <a href="#contact">Contact</a>
   </nav>
+</header>
 
-  <!-- About Section -->
-  <section id="about">
-    <h2>About the Event</h2>
-    <p>This event brings together amazing people, great food, and exciting activities. Don’t miss out!</p>
-  </section>
+<div class="hero">
+  <h2>Welcome to Bezawada Eventz</h2>
+  <p>Join us for an unforgettable experience in Vijayawada!</p>
+  <button>Register Now</button>
+</div>
 
-  <!-- Gallery Section -->
-  <section id="gallery" class="gallery">
-    <h2>Event Gallery</h2>
-    <img src="event1.jpg" alt="Event photo 1">
-    <img src="event2.jpg" alt="Event photo 2">
-    <img src="event3.jpg" alt="Event photo 3">
-    <!-- Add more images as needed -->
-  </section>
+<section id="about">
+  <h2>About the Event</h2>
+  <p>This event brings together amazing people, great food, and exciting activities. Don’t miss out!</p>
+</section>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:bezawadaeventz@gmail.com">bezawadaeventz@gmail.com</a></p>
-    <p>Phone: +91-9100724981</p>
-    <p>Address: poranki, Vijayawada</p>
-  </section>
+<section id="features">
+  <h2>Highlights</h2>
+  <div class="features">
+    <div class="feature-card">
+      <h3>Networking</h3>
+      <p>Connect with professionals and peers.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Workshops</h3>
+      <p>Learn new skills from experts.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Entertainment</h3>
+      <p>Enjoy live performances and shows.</p>
+    </div>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2026 My Event Website</p>
-  </footer>
+<section id="gallery" class="gallery">
+  <h2>Event Gallery</h2>
+  <img src="event1.jpg" alt="Event photo 1">
+  <img src="event2.jpg" alt="Event photo 2">
+  <img src="event3.jpg" alt="Event photo 3">
+</section>
+
+<section id="contact" class="contact">
+  <h2>Contact Us</h2>
+  <p>Email: <a href="mailto:bezawadaeventz@gmail.com">bezawadaeventz@gmail.com</a></p>
+  <p>Phone: +91-9100724981</p>
+  <p>Address: Poranki, Vijayawada</p>
+</section>
+
+<footer>
+  <p>&copy; 2026 Bezawada Eventz</p>
+</footer>
 
 </body>
 </html>
